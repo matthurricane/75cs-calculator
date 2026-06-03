@@ -8,12 +8,12 @@
 
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Interactive flow: FRIED + CFS → Dementia → Deardorff/Lee → Shared decision → Result" name="description"/>
-<title>75+ Cancer Screener (75+CS)</title>
+<meta content="Fluxo interativo: FRIED + ECF → Demência → Deardorff/Lee → Decisão compartilhada → Resultado" name="description"/>
+<title>Rastreamento de Câncer 75+ (75+CS)</title>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
 <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.1/cdn.min.js"></script>
 <style>[x-cloak]{display:none!important} @media print{button, .no-print{display:none!important}}</style>
-<meta content="Calculator — 75+ Cancer Screener (75+CS)" property="og:title"/><meta content="Interactive flow: FRIED + CFS → Dementia → Deardorff/Lee → Shared decision → Result" property="og:description"/><meta content="website" property="og:type"/><meta content="summary" name="twitter:card"/><meta content="Calculator — 75+ Cancer Screener (75+CS)" name="twitter:title"/><meta content="Interactive flow: FRIED + CFS → Dementia → Deardorff/Lee → Shared decision → Result" name="twitter:description"/><style id="print-style">
+<meta content="Calculadora — Rastreamento de Câncer 75+ (75+CS)" property="og:title"/><meta content="Fluxo interativo: FRIED + ECF → Demência → Deardorff/Lee → Decisão compartilhada → Resultado" property="og:description"/><meta content="website" property="og:type"/><meta content="summary" name="twitter:card"/><meta content="Calculadora — Rastreamento de Câncer 75+ (75+CS)" name="twitter:title"/><meta content="Fluxo interativo: FRIED + ECF → Demência → Deardorff/Lee → Decisão compartilhada → Resultado" name="twitter:description"/><style id="print-style">
 @media print {
   /* Remove shadows and background colors for economy */
   * { box-shadow: none !important; text-shadow: none !important; }
@@ -187,16 +187,16 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 
 
 <!-- App / Home Screen Icons -->
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
-<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="../icon-512.png">
+<link rel="manifest" href="../manifest.json">
 <meta name="theme-color" content="#ffffff">
 
 <!-- App behavior -->
 <meta name="theme-color" content="#ffffff">
 
-<link rel="manifest" href="manifest.json">
+<link rel="manifest" href="../manifest.json">
   
 
 <!-- ===================== -->
@@ -205,7 +205,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 </head>
 <body class="bg-gray-50 min-h-screen text-gray-800" x-data="fluxograma()">
 
-<a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 bg-white border rounded px-3 py-2" href="#main">Skip to content</a><main id="main">
+<a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 bg-white border rounded px-3 py-2" href="#main">Pular para o conteúdo</a><main id="main">
 <div class="max-w-6xl mx-auto px-4 py-6">
 <header class="mb-6">
 <h1 class="text-2xl font-bold text-center uppercase text-blue-700">
@@ -244,13 +244,13 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 
     <img
       id="fluxograma-img"
-      src="assets/img/flowchart-en.png"
+      src="../assets/img/flowchart-en.png"
       alt="Fluxograma de rastreio"
       class="w-full h-auto block cursor-zoom-in"
     />
   </div>
 </section>
-<div class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50" id="fluxograma-modal"><img alt="Fluxograma ampliado" class="max-h-screen max-w-screen cursor-zoom-out" id="fluxograma-modal-img" src="assets/img/flowchart-en.png"/></div>
+<div class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50" id="fluxograma-modal"><img alt="Fluxograma ampliado" class="max-h-screen max-w-screen cursor-zoom-out" id="fluxograma-modal-img" src="../assets/img/flowchart-en.png"/></div>
 <div class="mb-4">
 <div class="flex items-center justify-between mb-1">
 <p class="text-sm">Etapa <span x-text="step"></span> de 5</p>
@@ -274,7 +274,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 <label class="text-sm font-medium mb-2 block">FRIED — Critérios de Fried* (Recomendado para geriatras)</label>
 <div class="space-y-2 text-sm">
 <label class="flex items-center gap-2"><input type="checkbox" x-model="fried.weightLoss"/> Perda ponderal ≥ 5% no último ano</label>
-<label class="flex items-center gap-2"><input type="checkbox" x-model="fried.exhaustion"/> Exaustão/Fadiga autorreportada</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="fried.exhaustion"/> Exaustão/Fadiga autorreferida</label>
 <label class="flex items-center gap-2"><input type="checkbox" x-model="fried.lowActivity"/> Sedentarismo</label>
 <label class="flex items-center gap-2"><input type="checkbox" x-model="fried.slowness"/> Baixa velocidade de marcha (&lt; 0.8 m/s)</label>
 <label class="flex items-center gap-2"><input type="checkbox" x-model="fried.weakness"/> Baixa força de preensão palmar</label>
@@ -287,7 +287,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 <span class="inline-block mt-1">Mulheres: <span class="font-semibold">&lt; 16 kgf</span></span><br/>
 <span class="inline-block">Homens: <span class="font-semibold">&lt; 27 kgf</span></span>
 <div class="text-[10px] text-gray-500 mt-1">
-  *Modificação dos Critérios de Fried: Medidas de força de preensão palmar não são ajustada para o IMC.<sup><a href="#ref5">2</a></sup>
+  *Modificação dos Critérios de Fried: Medidas de força de preensão palmar não são ajustadas para o IMC.<sup><a href="#ref5">2</a></sup>
 </div>
 
 </div>
@@ -331,7 +331,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
     </label>
     <label class="flex items-center gap-2">
       <input type="checkbox" :checked="cfs===9" @change="cfs = (cfs===9) ? null : 9"/>
-      9 — Doente Terminal: Exectativa de vida &lt; 6 meses.
+      9 — Doente Terminal: Expectativa de vida &lt; 6 meses.
     </label>
   </div>
 
@@ -371,13 +371,13 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 <select class="border rounded w-full px-3 py-2" x-model="dem.sex">
 <option value="M">Masculino</option><option value="F">Feminino</option>
 </select></div>
-<div><label class="text-xs block mb-1">Peso (Kg)</label><input @input="updateDemBMI()" class="border rounded w-full px-3 py-2" step="0.1" type="number" x-model.number="dem.wkg"/></div>
+<div><label class="text-xs block mb-1">Peso (kg)</label><input @input="updateDemBMI()" class="border rounded w-full px-3 py-2" step="0.1" type="number" x-model.number="dem.wkg"/></div>
 <div><label class="text-xs block mb-1">Altura (cm)</label><input @input="updateDemBMI()" class="border rounded w-full px-3 py-2" step="0.1" type="number" x-model.number="dem.hcm"/></div>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
 <div><label class="text-xs block mb-1">IMC</label><div class="px-3 py-2 border rounded bg-gray-50 w-full" x-text="dem.bmi ? dem.bmi.toFixed(1) : '—'"></div></div><div><label class="text-xs block mb-1">Tabagismo</label>
-<select class="border rounded w-full px-3 py-2" x-model="dem.smoke"><option>Nunca</option><option>Fumante prévio</option><option>Atual</option></select></div>
-<div><label class="text-xs block mb-1">Depência em Atividades Básicas de Vida Diária (ABVDs) — inclui necessidade de auxílio com vestimenta, banho, alimentação, transferência da cama, e ir ao banheiro (0-5)</label><input class="border rounded w-full px-3 py-2" max="5" min="0" type="number" x-model.number="dem.adl"/></div>
+<select class="border rounded w-full px-3 py-2" x-model="dem.smoke"><option value="Never">Nunca</option><option value="Former smoker">Fumante prévio</option><option value="Current">Atual</option></select></div>
+<div><label class="text-xs block mb-1">Dependência em Atividades Básicas de Vida Diária (ABVDs) — inclui necessidade de auxílio com vestimenta, banho, alimentação, transferência da cama, e ir ao banheiro (0-5)</label><input class="border rounded w-full px-3 py-2" max="5" min="0" type="number" x-model.number="dem.adl"/></div>
 <div><label class="text-xs block mb-1">Dificuldades em Atividades Instrumentais de Vida Diária (AIVDs) — Inclui dificuldades em usar o telefone, preparar refeições, administrar medicamentos, gerenciar dinheiro (ex: pagar contas), e fazer compras no mercado (0-5)</label><input class="border rounded w-full px-3 py-2" max="5" min="0" type="number" x-model.number="dem.iadl"/></div>
 <label class="flex items-center gap-2"><input type="checkbox" x-model="dem.walk"/> Dificuldade em andar várias quadras</label>
 <label class="flex items-center gap-2"><input type="checkbox" x-model="dem.vigorous"/> Participa de atividade física vigorosa (correr, nadar, ciclismo, atividades aeróbicas ou de musculação em academia, tênis, ou cavar com uma pá)</label>
@@ -409,7 +409,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 <div><label class="text-xs block mb-1">Sexo</label>
 <select class="border rounded w-full px-3 py-2" x-model="lee.sex"><option value="M">Masculino</option><option value="F">Feminino</option></select></div>
 <div class="md:col-span-2 grid grid-cols-2 gap-3">
-<div><label class="text-xs block mb-1">Peso (Kg)</label><input @input="updateLeeBMI()" class="border rounded w-full px-3 py-2" step="0.1" type="number" x-model.number="lee.wkg"/></div>
+<div><label class="text-xs block mb-1">Peso (kg)</label><input @input="updateLeeBMI()" class="border rounded w-full px-3 py-2" step="0.1" type="number" x-model.number="lee.wkg"/></div>
 <div><label class="text-xs block mb-1">Altura (cm)</label><input @input="updateLeeBMI()" class="border rounded w-full px-3 py-2" step="0.1" type="number" x-model.number="lee.hcm"/></div>
 </div>
 <div><label class="text-xs block mb-1">IMC</label><div class="px-3 py-2 border rounded bg-gray-50" x-text="lee.bmi ? lee.bmi.toFixed(1) : '—'"></div></div>
@@ -455,7 +455,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 <div :class="resultTone.bg" class="bg-white shadow rounded-lg p-4 border-l-4">
 <h2 :class="resultTone.text" class="text-xl font-bold" x-text="result.label"></h2>
 <p :class="resultTone.text" class="text-sm mt-2" x-text="result.reason"></p>
-<p class="text-xs mt-2 text-gray-600" x-show="result.label === 'Rastreio não recomendado'">Intervenções (farmacológicas e não-farmacológicas) podem ser implementadas e mudar essa decisão.</p>
+<p class="text-xs mt-2 text-gray-600" x-show="result.label === 'Rastreamento não recomendado'">Intervenções (farmacológicas e não-farmacológicas) podem ser implementadas e mudar essa decisão.</p>
 <div class="mt-3 p-3 bg-blue-50 border border-blue-200 rounded"
      x-show="['Rastreamento não recomendado','Rastreamento recomendado'].includes(result.label)">
 <p class="text-xs text-blue-800 font-medium">
@@ -467,7 +467,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 
   <!-- Conexão Social -->
   <div class="flex flex-col items-center gap-2">
-    <img src="assets/img/connectedness.png"
+    <img src="../assets/img/connectedness.png"
          alt="Connectedness"
          class="h-28 w-auto mx-auto"
          loading="lazy" />
@@ -476,7 +476,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 
   <!-- Nutrição Ideal  -->
   <div class="flex flex-col items-center gap-2">
-    <img src="assets/img/optimal-nutrition.png"
+    <img src="../assets/img/optimal-nutrition.png"
          alt="Optimal Nutrition"
          class="h-28 w-auto mx-auto"
          loading="lazy" />
@@ -485,7 +485,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 
   <!-- Atividade Física -->
   <div class="flex flex-col items-center gap-2">
-    <img src="assets/img/physical-activity.png"
+    <img src="../assets/img/physical-activity.png"
          alt="Physical Activity"
          class="h-28 w-auto mx-auto"
          loading="lazy" />
@@ -494,7 +494,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 
   <!-- Sono Reparador -->
   <div class="flex flex-col items-center gap-2">
-    <img src="assets/img/restorative-sleep.png"
+    <img src="../assets/img/restorative-sleep.png"
          alt="Restorative Sleep"
          class="h-28 w-auto mx-auto"
          loading="lazy" />
@@ -503,7 +503,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 
   <!-- Evitar o consumo de Substâncias de Risco -->
   <div class="flex flex-col items-center gap-2">
-    <img src="assets/img/risky-substance-avoidance.png"
+    <img src="../assets/img/risky-substance-avoidance.png"
          alt="Risky Substance Avoidance"
          class="h-28 w-auto mx-auto"
          loading="lazy" />
@@ -512,7 +512,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 
   <!-- Gerenciar Estresse -->
   <div class="flex flex-col items-center gap-2">
-    <img src="assets/img/stress-management.png"
+    <img src="../assets/img/stress-management.png"
          alt="Stress Management"
          class="h-28 w-auto mx-auto"
          loading="lazy" />
@@ -674,7 +674,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
         },
         cfs: null,
         get friedCount() { return Object.values(this.fried).filter(Boolean).length; },
-        get frailtyClass(){const c=this.friedCount;if(c===0)return'Robusto(a)';if(c<=2)return'Pré-frágil';if(c<=4)return'Frágil (3-4 criteria)';return'Frágil (5 critérios)';},
+        get frailtyClass(){const c=this.friedCount;if(c===0)return'Robusto(a)';if(c<=2)return'Pré-frágil';if(c<=4)return'Frágil (3-4 critérios)';return'Frágil (5 critérios)';},
         
         get risk10Value(){
           // Não mostrar risco se pulou por fragilidade importante
@@ -758,7 +758,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
         // Deardorff (demência)
         dem: { age:'65-69', sex:'F', wkg:null, hcm:null, bmi:null, walk:false, vigorous:false, adl:0, iadl:0, smoke:'Never', diabetes:false, heart:false, cancer:false, lung:false, r1:null, r2:null, r5:null, r10:null },
         updateDemBMI(){ if(this.dem.wkg && this.dem.hcm){ const h=this.dem.hcm/100; this.dem.bmi=this.dem.wkg/(h*h);} else { this.dem.bmi=null; } },
-        demLP(){ let lp=0; const age={'65-69':0,'70-74':0.32,'75-79':0.66,'80-84':0.97,'85-89':1.20,'90+':1.47}[this.dem.age]??0; lp+=age; if(this.dem.sex==='F')lp+=(-0.34); const bmi=this.dem.bmi; if(bmi!==null){ if(bmi<18.5)lp+=0.44; else if(bmi>=25 && bmi<30)lp+=(-0.16); else if(bmi>=30)lp+=(-0.28);} lp+=({'Nunca':0,'Former smoker':0.17,'Current':0.32}[this.dem.smoke]??0); lp+=0.14*(Number(this.dem.adl)||0); lp+=0.10*(Number(this.dem.iadl)||0); if(this.dem.walk)lp+=0.09; if(this.dem.vigorous)lp+=(-0.13); if(this.dem.diabetes)lp+=0.22; if(this.dem.heart)lp+=0.22; if(this.dem.cancer)lp+=0.21; if(this.dem.lung)lp+=0.30; return lp; },
+        demLP(){ let lp=0; const age={'65-69':0,'70-74':0.32,'75-79':0.66,'80-84':0.97,'85-89':1.20,'90+':1.47}[this.dem.age]??0; lp+=age; if(this.dem.sex==='F')lp+=(-0.34); const bmi=this.dem.bmi; if(bmi!==null){ if(bmi<18.5)lp+=0.44; else if(bmi>=25 && bmi<30)lp+=(-0.16); else if(bmi>=30)lp+=(-0.28);} lp+=({'Never':0,'Former smoker':0.17,'Current':0.32}[this.dem.smoke]??0); lp+=0.14*(Number(this.dem.adl)||0); lp+=0.10*(Number(this.dem.iadl)||0); if(this.dem.walk)lp+=0.09; if(this.dem.vigorous)lp+=(-0.13); if(this.dem.diabetes)lp+=0.22; if(this.dem.heart)lp+=0.22; if(this.dem.cancer)lp+=0.21; if(this.dem.lung)lp+=0.30; return lp; },
         demRisk(t){ const S0={1:0.9716,2:0.9338,5:0.8001,10:0.5369}[t]; if(!S0)return null; const surv=Math.pow(S0, Math.exp(this.demLP())); return 1-surv; },
         applyDemToFlow(){ const r10=this.demRisk(10); this.dem.r10=r10; this.mortalityHigh = (r10!==null && r10>=0.50); this.step = this.mortalityHigh?5:4; },
 
@@ -775,7 +775,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
           if (this.mortalityHigh === false) {
             if (this.consent === true)  return { label: 'Rastreamento recomendado', tone: 'success', reason: 'Decisão compartilhada: paciente e família concordam com os próximos passos.' };
             if (this.consent === false) return { label: 'Rastreamento não recomendado', tone: 'warning', reason: 'Decisão compartilhada: paciente e família não concordam com os próximos passos.' };
-            return { label: 'Shared decision-making', tone: 'info', reason: 'Aguardando resposta de paciente/família.' };
+            return { label: 'Decisão compartilhada', tone: 'info', reason: 'Aguardando resposta de paciente/família.' };
           }
           return { label: 'Resultado', tone: 'info', reason: 'Revise os passos anteriores.' };
         },
@@ -861,7 +861,7 @@ body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
 <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:16px;">
 <div style="position:relative; max-width:1000px; width:100%;">
 <button id="cfsLegendClose" style="position:absolute; right:-8px; top:-8px; background:#fff; border-radius:999px; padding:6px 12px; font-weight:700; box-shadow:0 2px 8px rgba(0,0,0,.2);">Fechar</button>
-<img alt="Clinical Frailty Scale — reference card" id="cfsLegendImg" src="assets/img/cfs.png" style="width:100%; height:auto; border-radius:8px; border:2px solid #fff; box-shadow:0 6px 24px rgba(0,0,0,.4);"/>
+<img alt="Clinical Frailty Scale — reference card" id="cfsLegendImg" src="../assets/img/cfs.png" style="width:100%; height:auto; border-radius:8px; border:2px solid #fff; box-shadow:0 6px 24px rgba(0,0,0,.4);"/>
 <div style="margin-top:6px; text-align:center; color:#fff; font-size:12px;">Clinical Frailty Scale © Geriatric Medicine Research — Dalhousie University. Used with permission.</div>
 </div>
 </div>
@@ -995,8 +995,8 @@ document.addEventListener('DOMContentLoaded', function(){
   z-index: 9999;
   display: none;
 ">
-  <span>Visits <span id="cnt-visits">–</span></span>
-  <span style="margin-left:10px">Completions <span id="cnt-completions">–</span></span>
+  <span>Visitas <span id="cnt-visits">–</span></span>
+  <span style="margin-left:10px">Conclusões <span id="cnt-completions">–</span></span>
 </div>
 
 <script>
@@ -1178,7 +1178,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   if (!hint || !flowDetails) return;
 
-  hint.textContent = 'Pinch to zoom';
+  hint.textContent = 'Faça pinça para ampliar';
   hint.style.display = 'none';
 
   flowDetails.addEventListener('toggle', function () {
