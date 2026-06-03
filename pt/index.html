@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<!-- ===================== -->
+<!-- DESKTOP (WEB) CODE BEGIN -->
+<!-- ===================== -->
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Interactive flow: FRIED + CFS → Dementia → Deardorff/Lee → Shared decision → Result" name="description"/>
+<title>75+ Cancer Screener (75+CS)</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.1/cdn.min.js"></script>
+<style>[x-cloak]{display:none!important} @media print{button, .no-print{display:none!important}}</style>
+<meta content="Calculator — 75+ Cancer Screener (75+CS)" property="og:title"/><meta content="Interactive flow: FRIED + CFS → Dementia → Deardorff/Lee → Shared decision → Result" property="og:description"/><meta content="website" property="og:type"/><meta content="summary" name="twitter:card"/><meta content="Calculator — 75+ Cancer Screener (75+CS)" name="twitter:title"/><meta content="Interactive flow: FRIED + CFS → Dementia → Deardorff/Lee → Shared decision → Result" name="twitter:description"/><style id="print-style">
+@media print {
+  /* Remove shadows and background colors for economy */
+  * { box-shadow: none !important; text-shadow: none !important; }
+  img { max-width: 100% !important; }
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+  body { background: #fff !important; color: #000 !important; }
+  a:link::after { content: " (" attr(href) ")"; font-size: 10px; }
+}
+</style>
+
+<!-- ===================== -->
+<!-- PRINT-ONLY STYLES BEGIN -->
+<style id="print-only-styles">
+@media print {
+  /* Hide UI extras */
+  #site-counters { display: none !important; }
+  button { display: none !important; }
+  details, summary { display: none !important; } /* References */
+
+  /* Hide authors block */
+  div.mt-1.text-center.text-gray-500.text-xs.md\:text-sm.leading-relaxed { display: none !important; }
+
+  /* Remove the subtitle sentence that gets cut */
+  div.mt-2.text-center.text-gray-500.text-sm.md\:text-base.font-medium.italic { display: none !important; }
+
+  /* Remove the "Advice" box only */
+  div.mt-2.p-2.bg-gray-50.border.rounded.text-\[11px\].md\:text-xs.text-gray-700.leading-relaxed {
+    display: none !important;
+  }
+
+  /* Start from a clean slate */
+  body { background: #fff !important; }
+  body * { visibility: hidden; }
+
+  /* Show title + two subtitle lines (excluding authors and the italic sentence above) */
+  h1, h1 + div, h1 + div + div { visibility: visible; }
+  h1 *, h1 + div *, h1 + div + div * { visibility: visible; }
+
+  /* Show final result card (Step 5) */
+  [\:class="resultTone.bg"] {
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 120px;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
+  [\:class="resultTone.bg"] * { visibility: visible; }
+}
+</style>
+<!-- PRINT-ONLY STYLES END -->
+<!-- ===================== -->
+
+
+
+<!-- ===================== -->
+<!-- DESKTOP (WEB) CODE END -->
+<!-- ===================== -->
+
+<!-- ===================== -->
+<!-- APP (PWA) CODE BEGIN -->
+<!-- ===================== -->
+<!-- ===================== -->
+<!-- APP-ONLY STYLES BEGIN -->
+<style id="app-only-styles">
+/* Only when installed/opened as an app (PWA standalone) OR iOS Add-to-Home-Screen.
+   Desktop + normal mobile browser unchanged. */
+@media (display-mode: standalone) {
+  .p-6 { padding: 14px !important; }
+  .p-4 { padding: 12px !important; }
+  .mt-6 { margin-top: 12px !important; }
+  .mt-8 { margin-top: 14px !important; }
+
+  h1 { font-size: 20px !important; line-height: 1.2 !important; }
+  h2 { font-size: 16px !important; line-height: 1.25 !important; }
+
+  /* Hide the original authors/collaborators line (we re-insert as collapsible via JS) */
+  div.mt-1.text-center.text-gray-500.text-xs.md\:text-sm.leading-relaxed { display: none !important; }
+
+  /* Images scale down in app */
+  img { max-width: 100% !important; height: auto !important; }
+  img.app-scale-down { max-height: 220px !important; object-fit: contain !important; }
+  img.app-flowchart { max-height: 320px !important; object-fit: contain !important; }
+
+  
+
+  /* Hide the small "status pills/cards" row under the flowchart image in app mode */
+  div.text-xs.flex.gap-2.items-center.no-print.mt-2 { display: none !important; }
+details.app-collapsible {
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 12px;
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.7);
+  }
+  details.app-collapsible > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: rgba(0,0,0,0.70);
+  list-style: none;
+}
+  details.app-collapsible > summary::-webkit-details-marker { display: none; }
+  details.app-collapsible .app-muted {
+    color: rgba(0,0,0,0.55);
+    font-size: 12px;
+    line-height: 1.35;
+    margin-top: 8px;
+  }
+  /* App UI polish: center authors content and normalize spacing between boxes */
+  details.app-collapsible { margin-top: 10px !important; }
+  details.app-collapsible .app-muted { text-align: center; }
+  #fluxograma-hero { margin-top: 8px !important; }
+#fluxograma-hero > div {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+}
+
+/* iOS Add-to-Home-Screen (Safari) does not always support display-mode media query reliably.
+   We also apply app styling when JS adds body.app-standalone. */
+body.app-standalone .p-6 { padding: 14px !important; }
+body.app-standalone .p-4 { padding: 12px !important; }
+body.app-standalone .mt-6 { margin-top: 12px !important; }
+body.app-standalone .mt-8 { margin-top: 14px !important; }
+
+body.app-standalone h1 { font-size: 20px !important; line-height: 1.2 !important; }
+body.app-standalone h2 { font-size: 16px !important; line-height: 1.25 !important; }
+body.app-standalone header { margin-bottom: 10px !important; }
+
+body.app-standalone div.mt-1.text-center.text-gray-500.text-xs.md\:text-sm.leading-relaxed { display: none !important; }
+
+body.app-standalone img { max-width: 100% !important; height: auto !important; }
+body.app-standalone img.app-scale-down { max-height: 220px !important; object-fit: contain !important; }
+body.app-standalone img.app-flowchart { max-height: 320px !important; object-fit: contain !important; }
+
+
+
+  /* Hide the small "status pills/cards" row under the flowchart image in app mode */
+  body.app-standalone div.text-xs.flex.gap-2.items-center.no-print.mt-2 { display: none !important; }
+body.app-standalone details.app-collapsible {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.7);
+}
+body.app-standalone details.app-collapsible > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: rgba(0,0,0,0.70);
+  list-style: none;
+  text-align: center;
+}
+body.app-standalone details.app-collapsible > summary::-webkit-details-marker { display: none; }
+body.app-standalone details.app-collapsible .app-muted {
+  color: rgba(0,0,0,0.55);
+  font-size: 12px;
+  line-height: 1.35;
+  margin-top: 8px;
+}
+
+body.app-standalone details.app-collapsible { margin-top: 8px !important; }
+body.app-standalone details.app-collapsible .app-muted { text-align: center; }
+body.app-standalone #fluxograma-hero { margin-top: 8px !important; }
+
+</style>
+<!-- APP-ONLY STYLES END -->
+<!-- ===================== -->
+
+
+<!-- App / Home Screen Icons -->
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ffffff">
+
+<!-- App behavior -->
+<meta name="theme-color" content="#ffffff">
+
+<link rel="manifest" href="manifest.json">
+  
+
+<!-- ===================== -->
+<!-- APP (PWA) CODE END -->
+<!-- ===================== -->
+</head>
+<body class="bg-gray-50 min-h-screen text-gray-800" x-data="fluxograma()">
+
+<a class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 bg-white border rounded px-3 py-2" href="#main">Skip to content</a><main id="main">
+<div class="max-w-6xl mx-auto px-4 py-6">
+<header class="mb-6">
+<h1 class="text-2xl font-bold text-center uppercase text-blue-700">
+  75+ Cancer Screener (75+CS)
+</h1>
+<div class="mt-2 font-bold text-center text-blue-600 text-sm md:text-base font-medium">RASTREAMENTO DE CÂNCER DE MAMA, COLORRETAL E PRÓSTATA EM PACIENTES DE 75+ ANOS (APLICÁVEL EM 65+ ANOS)</div>
+<div class="mt-2 text-center text-gray-500 text-sm md:text-base font-medium italic">Esse instrumento pode ser reaplicado quando indicado.</div>
+    <div>
+<div class="mt-1 text-center text-gray-500 text-xs md:text-sm leading-relaxed">
+<div>
+<div class="mt-1">
+<strong>Disciplina de Geriatria e Gerontologia, Departamento de Medicina. Escola Paulista de Medicina (EPM), Universidade Federal de São Paulo (UNIFESP). São Paulo, Brasil.</strong>
+    </div>
+<div class="mt-1">
+<strong>Autores:</strong> Dra. Marianne Wolff Rezende Teixeira (UNIFESP); Dr. Matheus de Oliveira Barros (UNIFESP); Dr. Luciano Pereira Soares (Insper); Dr. Adriana Bruscato Bortoluzzo (Insper); Profa. Dra. Maysa Seabra Cendoroglo (UNIFESP); Profa. Dra. Gisele Wally Braga Colleoni, MD, PhD (UNIFESP)
+    </div>
+<div class="mt-1">
+<strong>Contribuidores:</strong> Dra. Maísa Braga Aguiar (UNIFESP); Dra. Lia Alexandre Botelho de Paula (UNIFESP); Dra. Ana Beatriz Galhardi Di Tommaso (UNIFESP); Dr. Eduardo Canteiro Cruz (UNIFESP)
+    </div>
+</div>
+</header>
+<section class="mt-4" id="fluxograma-hero">
+  <div class="relative bg-white rounded-xl shadow-2xl ring-1 ring-black/5">
+
+    <!-- Click-to-expand hint -->
+    <div
+      class="absolute top-2 right-2
+             bg-white
+             text-gray-700 text-xs font-semibold px-2 py-1 rounded
+             ring-1 ring-gray-300 shadow-sm
+             pointer-events-none no-print"
+      aria-hidden="true"
+     id="fluxograma-zoom-hint">
+      Clique para expandir
+    </div>
+
+    <img
+      id="fluxograma-img"
+      src="assets/img/flowchart-en.png"
+      alt="Fluxograma de rastreio"
+      class="w-full h-auto block cursor-zoom-in"
+    />
+  </div>
+</section>
+<div class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50" id="fluxograma-modal"><img alt="Fluxograma ampliado" class="max-h-screen max-w-screen cursor-zoom-out" id="fluxograma-modal-img" src="assets/img/flowchart-en.png"/></div>
+<div class="mb-4">
+<div class="flex items-center justify-between mb-1">
+<p class="text-sm">Etapa <span x-text="step"></span> de 5</p>
+<div class="text-xs flex gap-2 items-center no-print mt-2">
+<span class="bg-gray-200 rounded-full px-3 py-0.5" x-show="cfs">ECF: <span x-text="cfs"></span></span>
+<span class="bg-gray-200 rounded-full px-3 py-0.5" x-show="friedCount &gt; 0">FRIED: <span x-text="friedCount + '/5 — ' + frailtyClass"></span></span>
+<span class="bg-gray-200 rounded-full px-3 py-0.5" x-show="hasDementia === true || hasDementia === false">Demência: <span x-text="hasDementia ? 'Sim' : 'Não'"></span></span>
+<span class="bg-gray-200 rounded-full px-3 py-0.5" x-show="(step &gt;= 3) &amp;&amp; (hasDementia === true || hasDementia === false) &amp;&amp; (risk10Value != null)">Risco de mortalidade em 10 anos: <span x-text="(hasDementia===false && ((typeof calcLeePoints==='function'?calcLeePoints(): (lee&&lee.points))||0) <= 1 ? 'Lee ' + String.fromCharCode(60) + ' 5%' : risk10Label)"></span></span>
+<span class="bg-gray-200 rounded-full px-3 py-0.5" x-show="consent === true || consent === false">Consentimento: <span x-text="consent ? 'Sim' : 'Não'"></span></span>
+</div>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div :style="`width: ${(step/5)*100}%`" class="bg-blue-600 h-2 rounded-full transition-all"></div>
+</div>
+<template x-if="step === 1">
+<div class="bg-white shadow rounded-lg p-4">
+<h2 class="text-lg font-semibold mb-2">Etapa 1 — Fragilidade</h2>
+<p class="text-sm text-gray-500 mb-4">Complete os Critérios de Fried ou a Escala Clínica de Fragilidade (ECF). Apenas um é necessário para prosseguir.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="text-sm font-medium mb-2 block">FRIED — Critérios de Fried* (Recomendado para geriatras)</label>
+<div class="space-y-2 text-sm">
+<label class="flex items-center gap-2"><input type="checkbox" x-model="fried.weightLoss"/> Perda ponderal ≥ 5% no último ano</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="fried.exhaustion"/> Exaustão/Fadiga autorreportada</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="fried.lowActivity"/> Sedentarismo</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="fried.slowness"/> Baixa velocidade de marcha (&lt; 0.8 m/s)</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="fried.weakness"/> Baixa força de preensão palmar</label>
+</div>
+<div class="mt-2 text-xs text-gray-700">
+    Selecionados: <span class="font-semibold" x-text="friedCount"></span>/5 — <span class="font-semibold" x-text="frailtyClass"></span>
+</div>
+<div class="mt-3 p-3 bg-gray-50 border rounded text-xs leading-relaxed">
+<strong>Força de Preensão Palmar — Pontos de Corte</strong><br/>
+<span class="inline-block mt-1">Mulheres: <span class="font-semibold">&lt; 16 kgf</span></span><br/>
+<span class="inline-block">Homens: <span class="font-semibold">&lt; 27 kgf</span></span>
+<div class="text-[10px] text-gray-500 mt-1">
+  *Modificação dos Critérios de Fried: Medidas de força de preensão palmar não são ajustada para o IMC.<sup><a href="#ref5">2</a></sup>
+</div>
+
+</div>
+</div>
+<!-- CFS — Clinical Frailty Scale (idêntico ao modelo do FRIED) -->
+<div>
+  <label class="text-sm font-medium mb-2 block"> ECF — Escala Clínica de Fragilidade (Recomendado para não-geriatras)</label>
+<p class="text-xs mt-2 mb-3"><button type="button" id="openCfsLink" class="underline text-blue-700" onclick="return (window.__openCfs ? window.__openCfs() : false)">Clique aqui para Escala Clínica de Fragilidade</button></p>
+  <div class="space-y-2 text-sm">
+    <label class="flex items-center gap-2">
+      <input type="checkbox" :checked="cfs===1" @change="cfs = (cfs===1) ? null : 1"/>
+      1 — Muito ativo, alta energia.
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="checkbox" :checked="cfs===2" @change="cfs = (cfs===2) ? null : 2"/>
+      2 — Ativo: sem doença ativa, ocasionalmente ativo.
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="checkbox" :checked="cfs===3" @change="cfs = (cfs===3) ? null : 3"/>
+      3 — Regular: problemas médicos estão bem controlados.
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="checkbox" :checked="cfs===4" @change="cfs = (cfs===4) ? null : 4"/>
+      4 — Vulnerável: independente; sintomas limitam atividades.
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="checkbox" :checked="cfs===5" @change="cfs = (cfs===5) ? null : 5"/>
+      5 — Levemente Frágil: necessita de ajuda para atividades diárias.
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="checkbox" :checked="cfs===6" @change="cfs = (cfs===6) ? null : 6"/>
+      6 — Moderadamente Frágil: necessita de ajuda em todas as atividades externas.
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="checkbox" :checked="cfs===7" @change="cfs = (cfs===7) ? null : 7"/>
+      7 — Muito Frágil: completamente dependente.
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="checkbox" :checked="cfs===8" @change="cfs = (cfs===8) ? null : 8"/>
+      8 — Severamente Frágil: Aproximando-se do fim da vida.
+    </label>
+    <label class="flex items-center gap-2">
+      <input type="checkbox" :checked="cfs===9" @change="cfs = (cfs===9) ? null : 9"/>
+      9 — Doente Terminal: Exectativa de vida &lt; 6 meses.
+    </label>
+  </div>
+
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 mt-4">
+<button @click="routeFromFragility()" class="bg-blue-600 text-white rounded py-2">Continuar</button>
+<button @click="resetFrag()" class="bg-gray-200 rounded py-2">Limpar</button>
+</div>
+</div>
+</template>
+<!-- Etapa 2: Demência? -->
+<template x-if="step === 2">
+<div class="bg-white shadow rounded-lg p-4">
+<h2 class="text-lg font-semibold mb-2">Etapa 2 — O paciente tem diagnóstico de demência?</h2>
+<div class="grid grid-cols-2 gap-3">
+<button @click="hasDementia = true; step = 3" class="bg-purple-600 text-white rounded py-2">Sim</button>
+<button @click="hasDementia = false; step = 3" class="bg-green-600 text-white rounded py-2">Não</button>
+</div>
+<div class="mt-3"><button @click="step = 1" class="text-sm underline">Voltar</button></div>
+</div>
+</template>
+<!-- Step 3: Calculadoras (Deardorff ou Lee, conforme demência) -->
+<template x-if="step === 3">
+<div class="bg-white shadow rounded-lg p-4">
+<template x-if="hasDementia === true">
+<div>
+<h2 class="text-lg font-semibold mb-2">Etapa 3 — Índice de Deardorff (demência)</h2>
+<!-- Deardorff form -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
+<div><label class="text-xs block mb-1">Idade</label>
+<select class="border rounded w-full px-3 py-2" x-model="dem.age">
+<option>65-69</option><option>70-74</option><option>75-79</option>
+<option>80-84</option><option>85-89</option><option>90+</option>
+</select></div>
+<div><label class="text-xs block mb-1">Sexo</label>
+<select class="border rounded w-full px-3 py-2" x-model="dem.sex">
+<option value="M">Masculino</option><option value="F">Feminino</option>
+</select></div>
+<div><label class="text-xs block mb-1">Peso (Kg)</label><input @input="updateDemBMI()" class="border rounded w-full px-3 py-2" step="0.1" type="number" x-model.number="dem.wkg"/></div>
+<div><label class="text-xs block mb-1">Altura (cm)</label><input @input="updateDemBMI()" class="border rounded w-full px-3 py-2" step="0.1" type="number" x-model.number="dem.hcm"/></div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+<div><label class="text-xs block mb-1">IMC</label><div class="px-3 py-2 border rounded bg-gray-50 w-full" x-text="dem.bmi ? dem.bmi.toFixed(1) : '—'"></div></div><div><label class="text-xs block mb-1">Tabagismo</label>
+<select class="border rounded w-full px-3 py-2" x-model="dem.smoke"><option>Nunca</option><option>Fumante prévio</option><option>Atual</option></select></div>
+<div><label class="text-xs block mb-1">Depência em Atividades Básicas de Vida Diária (ABVDs) — inclui necessidade de auxílio com vestimenta, banho, alimentação, transferência da cama, e ir ao banheiro (0-5)</label><input class="border rounded w-full px-3 py-2" max="5" min="0" type="number" x-model.number="dem.adl"/></div>
+<div><label class="text-xs block mb-1">Dificuldades em Atividades Instrumentais de Vida Diária (AIVDs) — Inclui dificuldades em usar o telefone, preparar refeições, administrar medicamentos, gerenciar dinheiro (ex: pagar contas), e fazer compras no mercado (0-5)</label><input class="border rounded w-full px-3 py-2" max="5" min="0" type="number" x-model.number="dem.iadl"/></div>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="dem.walk"/> Dificuldade em andar várias quadras</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="dem.vigorous"/> Participa de atividade física vigorosa (correr, nadar, ciclismo, atividades aeróbicas ou de musculação em academia, tênis, ou cavar com uma pá)</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="dem.diabetes"/> Diabetes</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="dem.heart"/> Doença Cardíaca</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="dem.cancer"/> Câncer, exceto pequenos cânceres de pele</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="dem.lung"/> Doença pulmonar, como doença pulmonar obstrutiva crônica (DPOC) ou bronquite crônica</label>
+</div>
+<div class="p-3 bg-gray-50 rounded border mt-3">
+<p class="text-sm">Risco de mortalidade em 10 anos: <span class="font-semibold" x-text="fmtPct(demRisk(10))"></span></p>
+<div class="mt-2 flex flex-wrap gap-2">
+<button @click="applyDemToFlow()" class="bg-blue-600 text-white rounded px-3 py-2">Aplicar ao fluxograma</button>
+<button @click="resetStep3()" class="bg-gray-200 rounded px-3 py-2">Limpar</button>
+</div>
+</div>
+</div>
+</template>
+<template x-if="hasDementia === false">
+<div>
+<h2 class="text-lg font-semibold mb-2">Etapa 3 — Índice de Lee (10 anos)</h2>
+<!-- Lee form -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
+<div><label class="text-xs block mb-1">Idade</label>
+<select class="border rounded w-full px-3 py-2" x-model="lee.age">
+<option value="50-59">50–59</option>
+<option value="60-64">60–64</option><option value="65-69">65–69</option><option value="70-74">70–74</option>
+<option value="75-79">75–79</option><option value="80-84">80–84</option><option value="&gt;=85">≥85</option>
+</select></div>
+<div><label class="text-xs block mb-1">Sexo</label>
+<select class="border rounded w-full px-3 py-2" x-model="lee.sex"><option value="M">Masculino</option><option value="F">Feminino</option></select></div>
+<div class="md:col-span-2 grid grid-cols-2 gap-3">
+<div><label class="text-xs block mb-1">Peso (Kg)</label><input @input="updateLeeBMI()" class="border rounded w-full px-3 py-2" step="0.1" type="number" x-model.number="lee.wkg"/></div>
+<div><label class="text-xs block mb-1">Altura (cm)</label><input @input="updateLeeBMI()" class="border rounded w-full px-3 py-2" step="0.1" type="number" x-model.number="lee.hcm"/></div>
+</div>
+<div><label class="text-xs block mb-1">IMC</label><div class="px-3 py-2 border rounded bg-gray-50" x-text="lee.bmi ? lee.bmi.toFixed(1) : '—'"></div></div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+<label class="flex items-center gap-2"><input type="checkbox" x-model="lee.diabetes"/> Diabetes</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="lee.cancer"/> Câncer, exceto pequenos cânceres de pele</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="lee.cld"/> Doença Pulmonar Obstrutiva Crônica (DPOC) que limita atividades usuais em casa</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="lee.chf"/> Insuficiência Cardíaca Congestiva</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="lee.smoker"/> Fumante ativo de cigarros</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="lee.bath"/> Dificuldade em tomar banho sem auxílio</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="lee.money"/> Dificuldade em gerir finanças</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="lee.walk"/> Dificuldade em caminhar várias quadras</label>
+<label class="flex items-center gap-2"><input type="checkbox" x-model="lee.push"/> Dificuldade em empurrar ou puxar grandes objetos (ex: cadeira da sala de estar)</label>
+</div>
+<div class="p-3 bg-gray-50 rounded border mt-3">
+<p class="text-sm">Escore Lee: <span class="font-semibold" x-text="calcLeePoints()"></span></p>
+<p class="text-sm">Risco de mortalidade em 10 anos: <span class="font-semibold" x-text="(calcLeePoints()!=null && calcLeePoints()<=1 ? '\u003C 5%' : fmtPct(leeRisk10(calcLeePoints())))"></span></p>
+<div class="mt-2 flex flex-wrap gap-2">
+<button @click="applyLeeToFlow()" class="bg-blue-600 text-white rounded px-3 py-2">Aplicar ao fluxograma</button>
+<button @click="resetStep3()" class="bg-gray-200 rounded px-3 py-2">Limpar</button>
+</div>
+</div>
+</div>
+</template>
+<div class="mt-3"><button @click="step = 2" class="text-sm underline">Voltar</button></div>
+</div>
+</template>
+<!-- Etapa 4: Decisão compartilhada -->
+<template x-if="step === 4">
+<div class="bg-white shadow rounded-lg p-4">
+<h2 class="text-lg font-semibold mb-2">Etapa 4 — Decisão compartilhada</h2>
+<p class="text-sm text-gray-700 mb-4"><strong>Pergunta:</strong> Se o resultado for positivo, o paciente e/ou sua família concordam em prosseguir com a avaliação diagnóstica e o tratamento?</p>
+<div class="grid grid-cols-2 gap-3">
+<button @click="consent = true; step = 5" class="bg-green-600 text-white rounded py-2">Sim</button>
+<button @click="consent = false; step = 5" class="bg-red-600 text-white rounded py-2">Não</button>
+</div>
+<div class="mt-3"><button @click="step = 3" class="text-sm underline">Voltar</button></div>
+</div>
+</template>
+<!-- Etapa 5: Resultado -->
+<template x-if="step === 5">
+<div :class="resultTone.bg" class="bg-white shadow rounded-lg p-4 border-l-4">
+<h2 :class="resultTone.text" class="text-xl font-bold" x-text="result.label"></h2>
+<p :class="resultTone.text" class="text-sm mt-2" x-text="result.reason"></p>
+<p class="text-xs mt-2 text-gray-600" x-show="result.label === 'Rastreio não recomendado'">Intervenções (farmacológicas e não-farmacológicas) podem ser implementadas e mudar essa decisão.</p>
+<div class="mt-3 p-3 bg-blue-50 border border-blue-200 rounded"
+     x-show="['Rastreamento não recomendado','Rastreamento recomendado'].includes(result.label)">
+<p class="text-xs text-blue-800 font-medium">
+  Exemplos de intervenção:
+</p>
+<p class="text-xs text-blue-700/60 mb-3">
+  ©2025 American College of Lifestyle Medicine. All rights reserved. lifestylemedicine.org
+</p><div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 items-start justify-items-center text-center">
+
+  <!-- Conexão Social -->
+  <div class="flex flex-col items-center gap-2">
+    <img src="assets/img/connectedness.png"
+         alt="Connectedness"
+         class="h-28 w-auto mx-auto"
+         loading="lazy" />
+    <p class="text-sm font-medium text-gray-700">Conexão Social</p>
+  </div>
+
+  <!-- Nutrição Ideal  -->
+  <div class="flex flex-col items-center gap-2">
+    <img src="assets/img/optimal-nutrition.png"
+         alt="Optimal Nutrition"
+         class="h-28 w-auto mx-auto"
+         loading="lazy" />
+    <p class="text-sm font-medium text-gray-700">Nutrição Ideal</p>
+  </div>
+
+  <!-- Atividade Física -->
+  <div class="flex flex-col items-center gap-2">
+    <img src="assets/img/physical-activity.png"
+         alt="Physical Activity"
+         class="h-28 w-auto mx-auto"
+         loading="lazy" />
+    <p class="text-sm font-medium text-gray-700">Atividade Física</p>
+  </div>
+
+  <!-- Sono Reparador -->
+  <div class="flex flex-col items-center gap-2">
+    <img src="assets/img/restorative-sleep.png"
+         alt="Restorative Sleep"
+         class="h-28 w-auto mx-auto"
+         loading="lazy" />
+    <p class="text-sm font-medium text-gray-700">Sono Reparador</p>
+  </div>
+
+  <!-- Evitar o consumo de Substâncias de Risco -->
+  <div class="flex flex-col items-center gap-2">
+    <img src="assets/img/risky-substance-avoidance.png"
+         alt="Risky Substance Avoidance"
+         class="h-28 w-auto mx-auto"
+         loading="lazy" />
+    <p class="text-sm font-medium text-gray-700">Evitar o consumo de Substâncias de Risco</p>
+  </div>
+
+  <!-- Gerenciar Estresse -->
+  <div class="flex flex-col items-center gap-2">
+    <img src="assets/img/stress-management.png"
+         alt="Stress Management"
+         class="h-28 w-auto mx-auto"
+         loading="lazy" />
+    <p class="text-sm font-medium text-gray-700">Gerenciar Estresse</p>
+  </div>
+
+</div>
+
+</div>
+<hr class="my-3"/>
+<div class="text-xs space-y-1">
+<p x-show="friedCount === 0">ECF: <span x-text="cfs !== null ? cfs : '—'"></span></p>
+<p x-show="friedCount > 0">FRIED: <span x-text="friedCount + '/5 — ' + frailtyClass"></span></p>
+<p>Demência: <span x-text="format(hasDementia)"></span></p>
+<p x-show="lee.r10 !== null || dem.r10 !== null">Risco de mortalidade em 10 anos: <span x-show="lee.r10 !== null">Lee <span class="font-medium" x-text="fmtPct(lee.r10)"></span></span><span x-show="lee.r10 !== null &amp;&amp; dem.r10 !== null"> | </span><span x-show="dem.r10 !== null">Deardorff <span class="font-medium" x-text="fmtPct(dem.r10)"></span></span></p>
+<p>Consentimento: <span x-text="format(consent)"></span></p>
+</div>
+<div class="mt-4 flex flex-wrap gap-2">
+<button @click="step = 1" class="bg-blue-600 text-white rounded px-3 py-2">Voltar ao Início</button>
+<button @click="resetAll" class="bg-gray-200 rounded px-3 py-2">Resetar</button>
+<button class="bg-green-600 text-white rounded px-3 py-2" onclick="window.print()">Imprimir</button>
+</div>
+<div class="mt-2 p-2 bg-gray-50 border rounded text-[11px] md:text-xs text-gray-700 leading-relaxed">
+<strong>Aviso:</strong>
+<span class="font-medium">Voltar ao Início</span> retorna à <span class="font-medium">Etapa 1</span> mantendo os dados preenchidos;
+  <span class="font-medium">Resetar</span> apaga <span class="font-medium">todos os dados</span> e reinicia a calculadora.
+</div>
+</div>
+</template>
+<footer class="mt-6 text-center text-xs text-gray-400">
+      Nenhum dado é armazenado ou retido. Ferramentas prognósticas auxiliam, mas não substituem, o julgamento clínico. 
+<section class="mt-8">
+<details class="bg-white rounded-lg shadow p-4">
+<summary class="cursor-pointer text-base font-semibold">Referências</summary>
+<div class="mt-3">
+<ol
+  class="list-decimal ml-6 space-y-2 text-sm leading-relaxed"
+  style="text-align: justify; text-justify: inter-word; overflow-wrap: anywhere;"
+>
+<li id="ref1">
+      Cruz M, Covinsky K, Widera EW, Stijacic-Cenzer I, Lee SJ. Predicting 10-year mortality for older adults. <em>JAMA</em>. 2013;309(9):874-876.
+      doi: <a href="https://doi.org/10.1001/jama.2013.1184" class="text-blue-700 underline hover:text-blue-900" target="_blank">10.1001/jama.2013.1184</a>.
+      PMID: 23462780; PMCID: PMC3760279.
+    </li>
+    <li id="ref2">
+      Cruz-Jentoft AJ, Bahat G, Bauer J, Boirie Y, Bruyère O, Cederholm T, et&nbsp;al.; Writing Group for the European Working Group on Sarcopenia in Older People 2 (EWGSOP2), and the Extended Group for EWGSOP2.
+      Sarcopenia: revised European consensus on definition and diagnosis. <em>Age Ageing</em>. 2019;48(4):601 (Erratum to: 2019;48(1):16-31).
+      doi: <a href="https://doi.org/10.1093/ageing/afz046" class="text-blue-700 underline hover:text-blue-900" target="_blank">10.1093/ageing/afz046</a>.
+      PMID: 31081853; PMCID: PMC6593317.
+    </li>
+    <li id="ref3">
+      Deardorff WJ, Barnes DE, Jeon SY, Boscardin WJ, Langa KM, Covinsky KE, et&nbsp;al.
+      Development and External Validation of a Mortality Prediction Model for Community-Dwelling Older Adults With Dementia. <em>JAMA Intern Med</em>. 2022;182(11):1161-1170.
+      doi: <a href="https://doi.org/10.1001/jamainternmed.2022.4326" class="text-blue-700 underline hover:text-blue-900" target="_blank">10.1001/jamainternmed.2022.4326</a>.
+      PMID: 36156062; PMCID: PMC9513707.
+    </li>
+    <li id="ref4">
+      Fried LP, Tangen CM, Walston J, Newman AB, Hirsch C, Gottdiener J, et&nbsp;al.; Cardiovascular Health Study Collaborative Research Group.
+      Frailty in older adults: evidence for a phenotype. <em>J Gerontol A Biol Sci Med Sci</em>. 2001;56(3):M146-M156.
+      doi: <a href="https://doi.org/10.1093/gerona/56.3.m146" class="text-blue-700 underline hover:text-blue-900" target="_blank">10.1093/gerona/56.3.m146</a>. PMID: 11253156.
+    </li>
+    <li id="ref5">
+      Kim DH, Rockwood K. Frailty in Older Adults. <em>N Engl J Med</em>. 2024;391(6):538-548.
+      doi: <a href="https://doi.org/10.1056/NEJMra2301292" class="text-blue-700 underline hover:text-blue-900" target="_blank">10.1056/NEJMra2301292</a>. PMID: 39115063; PMCID: PMC11634188.
+    </li>
+    <li id="ref6">
+      Kim EE, Cenzer I, Graham FJ, Kang J, Lee SJ, Rustagi AS.
+      Time to Benefit for Lung Cancer Screening: A Systematic Review and Survival Meta-Analysis. <em>Am J Prev Med</em>. 2025;69(2):107736.
+      doi: <a href="https://doi.org/10.1016/j.amepre.2025.107736" class="text-blue-700 underline hover:text-blue-900" target="_blank">10.1016/j.amepre.2025.107736</a>. PMID: 40447235; PMCID: PMC12370011.
+    </li>
+    <li id="ref7">
+      Kotwal AA, Walter LC. Cancer Screening in Older Adults: Individualized Decision-Making and Communication Strategies. <em>Med Clin North Am</em>. 2020;104(6):989-1006.
+      doi: <a href="https://doi.org/10.1016/j.mcna.2020.08.002" class="text-blue-700 underline hover:text-blue-900" target="_blank">10.1016/j.mcna.2020.08.002</a>. PMID: 33099456; PMCID: PMC7594102.
+    </li>
+    <li id="ref8">
+      Lee SJ, Boscardin WJ, Kirby KA, Covinsky KE.
+      Individualizing life expectancy estimates for older adults using the Gompertz Law of Human Mortality. <em>PLoS One</em>. 2014;9(9):e108540.
+      doi: <a href="https://doi.org/10.1371/journal.pone.0108540" class="text-blue-700 underline hover:text-blue-900" target="_blank">10.1371/journal.pone.0108540</a>. PMID: 25265291; PMCID: PMC4180452.
+    </li>
+    <li id="ref9">
+      Lee SJ, Boscardin WJ, Stijacic-Cenzer I, Conell-Price J, O'Brien S, Walter LC.
+      Time lag to benefit after screening for breast and colorectal cancer: meta-analysis of survival data from the United States, Sweden, United Kingdom, and Denmark. <em>BMJ</em>. 2013;346:e8441.
+      doi: <a href="https://doi.org/10.1136/bmj.e8441" class="text-blue-700 underline hover:text-blue-900" target="_blank">10.1136/bmj.e8441</a>. PMID: 23299842; PMCID: PMC4688425.
+    </li>
+    <li id="ref10">
+      Rockwood K, Song X, MacKnight C, Bergman H, Hogan DB, McDowell I, Mitnitski A.
+      A global clinical measure of fitness and frailty in elderly people. <em>CMAJ</em>. 2005;173(5):489-495.
+      doi: <a href="https://doi.org/10.1503/cmaj.050051" class="text-blue-700 underline hover:text-blue-900" target="_blank">10.1503/cmaj.050051</a>. PMID: 16129869; PMCID: PMC1188185.
+    </li>
+    <li id="ref11">
+      Rockwood K, Theou O. Using the Clinical Frailty Scale in Allocating Scarce Health Care Resources. <em>Can Geriatr J</em>. 2020;23(3):210-215.
+      doi: <a href="https://doi.org/10.5770/cgj.23.463" class="text-blue-700 underline hover:text-blue-900" target="_blank">10.5770/cgj.23.463</a>. PMID: 32904824; PMCID: PMC7458601.
+    </li>
+</ol>
+</div>
+</details>
+</section>
+</footer>
+</div>
+<script>
+    function fluxograma() {
+      return {
+        // Resets all Step 3 inputs (both dementia/Deardorff and no-dementia/Lee)
+        resetStep3() {
+          try {
+            // Deardorff/dementia defaults
+            if (this.dem) {
+              this.dem.age = this.dem.age || '65-69';
+              this.dem.sex = 'F';
+              this.dem.wkg = null;
+              this.dem.hcm = null;
+              this.dem.bmi = null;
+              this.dem.walk = false; this.dem.vigorous = false; this.dem.r10 = null; this.dem.adl = 0;
+              this.dem.iadl = 0;
+              this.dem.smoke = 'Never';
+              this.dem.diabetes = false;
+              this.dem.heart = false;
+              this.dem.cancer = false;
+              this.dem.lung = false;
+            }
+            // Lee defaults
+            if (this.lee) {
+              this.lee.age = '50-59';
+              this.lee.sex = 'F';
+              this.lee.wkg = null;
+              this.lee.hcm = null;
+              this.lee.bmi = null;
+              this.lee.diabetes = false;
+              this.lee.cancer = false;
+              this.lee.cld = false;
+              this.lee.chf = false;
+              this.lee.smoker = false;
+              this.lee.bath = false;
+              this.lee.money = false;
+              this.lee.walk = false;
+              this.lee.push = false;
+              this.lee.points = null;
+              this.lee.r10 = null;
+            }
+            // Also clear any checked controls shown in Step 3 container
+            const step3 = document.querySelector('template[x-if=\"step === 3\"]')?.content || document.querySelector('[data-step="3"], #step3');
+            const root = step3?.querySelector ? step3 : document;
+            const nodes = root.querySelectorAll && root.querySelectorAll('input[type=checkbox],input[type=radio]');
+            if (nodes && nodes.forEach) nodes.forEach(i => i.checked = false);
+            const selects = root.querySelectorAll && root.querySelectorAll('select');
+            if (selects && selects.forEach) selects.forEach(s => s.selectedIndex = 0);
+          } catch (e) { console.warn('resetStep3 failed', e); }
+        },
+        
+        step: 1,
+        // Fragilidade
+        fried: { weightLoss: false, exhaustion: false, lowActivity: false, slowness: false, weakness: false },
+        friedLabels: {
+          weightLoss: 'Perda de peso não intencional',
+          exhaustion: 'Exaustão/fadiga autorreferida',
+          lowActivity: 'Baixo nível de atividade física',
+          slowness: 'Lentidão na marcha',
+          weakness: 'Força de Preensão Palmar'
+        },
+        cfs: null,
+        get friedCount() { return Object.values(this.fried).filter(Boolean).length; },
+        get frailtyClass(){const c=this.friedCount;if(c===0)return'Robusto(a)';if(c<=2)return'Pré-frágil';if(c<=4)return'Frágil (3-4 criteria)';return'Frágil (5 critérios)';},
+        
+        get risk10Value(){
+          // Não mostrar risco se pulou por fragilidade importante
+          if (this.blockByFrailty) return null;
+          // Só calcular após decidir demência
+          if (!(this.hasDementia === true || this.hasDementia === false)) return null;
+          if (this.hasDementia === true) {
+            // Deardorff (demência)
+            const v = this.demRisk ? this.demRisk(10) : (this.dem && this.dem.r10 != null ? this.dem.r10 : null);
+            return (v !== undefined) ? v : null;
+          } else {
+            // Lee (sem demência)
+            const p = this.calcLeePoints ? this.calcLeePoints() : (this.lee && this.lee.points != null ? this.lee.points : null);
+            const v = (p != null && this.leeRisk10) ? this.leeRisk10(p) : (this.lee && this.lee.r10 != null ? this.lee.r10 : null);
+            return (v !== undefined) ? v : null;
+          }
+        },
+        get risk10Label(){
+          const v = this.risk10Value;
+          if (v == null) return '—';
+          
+        
+        if (this.hasDementia === false) {   const p = (typeof this.calcLeePoints==='function' ? this.calcLeePoints() : (this.lee && this.lee.points));   if (p != null && p <= 1) return 'Lee ' + String.fromCharCode(60) + ' 5%'; } if (this.hasDementia === false && v < 0.05) return 'Lee ' + String.fromCharCode(60) + ' 5%'; // Show "\u003C 5%" for Lee when points <= 1
+        if (this.hasDementia === false) {
+          const p = (typeof this.calcLeePoints==='function' ? this.calcLeePoints() : (this.lee && this.lee.points));
+          if (p != null && p <= 1) { return 'Lee ' + String.fromCharCode(60) + ' 5%'; }
+        }
+        // Ensure 0–1 Lee points always display "\u003C 5%"
+        if (this.hasDementia === false) {
+          const p = (this.calcLeePoints ? this.calcLeePoints() : (this.lee && this.lee.points));
+          if (p !== undefined && p !== null && p <= 1) { return 'Lee ' + String.fromCharCode(60) + ' 5%'; }
+        }
+    if (this.hasDementia === false && v < 0.05) { return 'Lee ' + String.fromCharCode(60) + ' 5%'; }
+        return (this.hasDementia === true ? 'Deardorff ' : 'Lee ') + this.fmtPct(v);
+        },
+        get showRiskChip(){
+          // Mostrar risco apenas se for a etapa correspondente (>=3), demência já decidida e sem bloqueio por fragilidade
+          return !this.blockByFrailty && (this.step >= 3) && (this.hasDementia === true || this.hasDementia === false) && (this.risk10Value != null);
+        },
+        
+        
+        
+        get risk10Chip(){
+          const fmt = (v) => this.fmtPct(v);
+          if (this.dem && this.dem.r10 !== null && this.dem.r10 !== undefined) return 'Deardorff ' + fmt(this.dem.r10);
+          if (this.lee && this.lee.r10 !== null && this.lee.r10 !== undefined) return 'Lee ' + fmt(this.lee.r10);
+          return '—';
+        },
+    
+        routeFromFragility(){
+          const fc = this.friedCount;
+          const cfs = Number(this.cfs);
+          if (fc === 5 || (cfs && cfs >= 8)) {
+            // Bloqueio por fragilidade importante
+            this.blockByFrailty = true;
+            this.mortalityHigh = null;
+            this.step = 5; // vai direto ao resultado
+          } else {
+            // Segue para pergunta de demência
+            this.blockByFrailty = false;
+            this.step = 2;
+          }
+        },
+        resetFrag(){
+          this.fried = { weightLoss: false, exhaustion: false, lowActivity: false, slowness: false, weakness: false };
+          this.cfs = null;
+        },
+
+        // Demência e calculadoras
+        hasDementia: null,
+        mortalityHigh: null, // true se risco >=50%
+        consent: null,
+
+        // Lee (não demência)
+        lee: { age:'50-59', sex:'F', wkg:null, hcm:null, bmi:null, diabetes:false, cancer:false, cld:false, chf:false, smoker:false, bath:false, money:false, walk:false, push:false, points:null, r10:null },
+        updateLeeBMI(){ if (this.lee.wkg && this.lee.hcm){ const h=this.lee.hcm/100; this.lee.bmi = this.lee.wkg/(h*h);} else { this.lee.bmi=null; } },
+        calcLeePoints(){ let p=0; const age={'50-59':0,'60-64':1,'65-69':2,'70-74':3,'75-79':4,'80-84':5,'>=85':7}; p+=age[this.lee.age]||0; if(this.lee.sex==='M')p+=2; if(this.lee.diabetes)p+=1; if(this.lee.cancer)p+=2; if(this.lee.cld)p+=2; if(this.lee.chf)p+=2; if(this.lee.smoker)p+=2; if(this.lee.bmi!==null && this.lee.bmi<25)p+=1; if(this.lee.bath)p+=2; if(this.lee.money)p+=2; if(this.lee.walk)p+=2; if(this.lee.push)p+=1; return p; },
+        leeRisk10(points){ const map={0:0.049,1:0.049,2:0.070,3:0.10,4:0.15,5:0.23,6:0.34,7:0.43,8:0.52,9:0.58,10:0.70,11:0.82,12:0.83,13:0.91,14:0.93}; const k=points>=14?14:(points in map?points:14); return map[k]; },
+        applyLeeToFlow(){ const p=this.calcLeePoints(); const r=this.leeRisk10(p); this.lee.points=p; this.lee.r10=r; this.mortalityHigh = (r>=0.50); this.step = this.mortalityHigh?5:4; },
+
+        // Deardorff (demência)
+        dem: { age:'65-69', sex:'F', wkg:null, hcm:null, bmi:null, walk:false, vigorous:false, adl:0, iadl:0, smoke:'Never', diabetes:false, heart:false, cancer:false, lung:false, r1:null, r2:null, r5:null, r10:null },
+        updateDemBMI(){ if(this.dem.wkg && this.dem.hcm){ const h=this.dem.hcm/100; this.dem.bmi=this.dem.wkg/(h*h);} else { this.dem.bmi=null; } },
+        demLP(){ let lp=0; const age={'65-69':0,'70-74':0.32,'75-79':0.66,'80-84':0.97,'85-89':1.20,'90+':1.47}[this.dem.age]??0; lp+=age; if(this.dem.sex==='F')lp+=(-0.34); const bmi=this.dem.bmi; if(bmi!==null){ if(bmi<18.5)lp+=0.44; else if(bmi>=25 && bmi<30)lp+=(-0.16); else if(bmi>=30)lp+=(-0.28);} lp+=({'Nunca':0,'Former smoker':0.17,'Current':0.32}[this.dem.smoke]??0); lp+=0.14*(Number(this.dem.adl)||0); lp+=0.10*(Number(this.dem.iadl)||0); if(this.dem.walk)lp+=0.09; if(this.dem.vigorous)lp+=(-0.13); if(this.dem.diabetes)lp+=0.22; if(this.dem.heart)lp+=0.22; if(this.dem.cancer)lp+=0.21; if(this.dem.lung)lp+=0.30; return lp; },
+        demRisk(t){ const S0={1:0.9716,2:0.9338,5:0.8001,10:0.5369}[t]; if(!S0)return null; const surv=Math.pow(S0, Math.exp(this.demLP())); return 1-surv; },
+        applyDemToFlow(){ const r10=this.demRisk(10); this.dem.r10=r10; this.mortalityHigh = (r10!==null && r10>=0.50); this.step = this.mortalityHigh?5:4; },
+
+        // Flags
+        blockByFrailty: false,
+
+        // Resultado & helpers
+        get result(){
+          // 1) Fragilidade bloqueia
+          if (this.blockByFrailty) return { label: 'Rastreamento não recomendado', tone: 'danger', reason: 'Extremamente Frágil: ECF 8–9.' };
+          // 2) Risco alto bloqueia
+          if (this.mortalityHigh === true) return { label: 'Rastreamento não recomendado', tone: 'danger', reason: 'Risco de mortalidade em 10 anos ≥ 50%.' };
+          // 3) Risco <50% passa por Shared decision-making
+          if (this.mortalityHigh === false) {
+            if (this.consent === true)  return { label: 'Rastreamento recomendado', tone: 'success', reason: 'Decisão compartilhada: paciente e família concordam com os próximos passos.' };
+            if (this.consent === false) return { label: 'Rastreamento não recomendado', tone: 'warning', reason: 'Decisão compartilhada: paciente e família não concordam com os próximos passos.' };
+            return { label: 'Shared decision-making', tone: 'info', reason: 'Aguardando resposta de paciente/família.' };
+          }
+          return { label: 'Resultado', tone: 'info', reason: 'Revise os passos anteriores.' };
+        },
+        get resultTone(){ return { success:{bg:'border-green-300',text:'text-green-700'}, danger:{bg:'border-red-300',text:'text-red-700'}, warning:{bg:'border-yellow-300',text:'text-yellow-700'}, info:{bg:'border-blue-300',text:'text-blue-700'} }[this.result.tone]; },
+        resetAll(){
+            this.step = 1;
+            // Fragilidade
+            this.resetFrag();
+            // Demência & riscos
+            this.hasDementia = null;
+            this.mortalityHigh = null;
+            this.consent = null;
+            if (this.resetLee) this.resetLee(); else if (this.lee){ this.lee = { age:'65-69', sex:'M', wkg:null, hcm:null, bmi:null, diabetes:false, cancer:false, lung:false, money:false, walk:false, push:false, points:null, r10:null }; }
+            if (this.resetDem) this.resetDem(); else if (this.dem){ this.dem = { age:'65-69', sex:'M', wkg:null, hcm:null, bmi:null, diabetes:false, cancer:false, lung:false, money:false, walk:false, push:false, points:null, r10:null }; }
+            this.blockByFrailty = false;
+        
+            // Garantir limpeza completa de caches/calculados
+            if (this.lee) { this.lee.points = null; this.lee.r10 = null; }
+            if (this.dem) { this.dem.r1 = null; this.dem.r2 = null; this.dem.r5 = null; this.dem.r10 = null; }
+        },
+        format(v){ if(v===true)return'Sim'; if(v===false)return'Não'; return '—'; },
+        fmtPct(x){ if (x===null||x===undefined) return '—'; return (x*100).toFixed(0)+'%'; }
+      }
+    }
+  </script>
+<div aria-live="polite" class="sr-only" id="live-results"></div></div></main><script id="persist-state">
+(function() {
+  try {
+    // Restore language
+    var savedLang = localStorage.getItem('calc_lang');
+    var langSelect = document.querySelector('[data-lang-select]') || document.querySelector('select[aria-label*="idioma" i]');
+    if (savedLang && langSelect) {
+      langSelect.value = savedLang;
+      langSelect.dispatchEvent(new Event('change'));
+    }
+    if (langSelect) {
+      langSelect.addEventListener('change', function(e) {
+        localStorage.setItem('calc_lang', e.target.value);
+      });
+    }
+    // Restore method
+    var savedMethod = localStorage.getItem('calc_method');
+    var methodBtns = document.querySelectorAll('[data-method]');
+    if (savedMethod) {
+      methodBtns.forEach(function(btn) {
+        if (btn.getAttribute('data-method') === savedMethod) {
+          btn.setAttribute('aria-pressed', 'true');
+        } else {
+          btn.setAttribute('aria-pressed', 'false');
+        }
+      });
+    }
+    methodBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        localStorage.setItem('calc_method', btn.getAttribute('data-method'));
+        methodBtns.forEach(function(b){
+          b.setAttribute('aria-pressed', b===btn ? 'true' : 'false');
+        });
+      });
+    });
+  } catch(e) { /* no-op */ }
+})();
+</script><script id="fluxograma-modal-script">
+  const img = document.getElementById("fluxograma-img");
+  const modal = document.getElementById("fluxograma-modal");
+  const modalImg = document.getElementById("fluxograma-modal-img");
+
+  if (img && modal && modalImg) {
+    img.addEventListener("click", () => {
+      modal.classList.remove("hidden");
+    });
+    modal.addEventListener("click", () => {
+      modal.classList.add("hidden");
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        modal.classList.add("hidden");
+      }
+    });
+  }
+    </script>
+<div class="no-print" id="cfsLegendModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,.7);">
+<div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:16px;">
+<div style="position:relative; max-width:1000px; width:100%;">
+<button id="cfsLegendClose" style="position:absolute; right:-8px; top:-8px; background:#fff; border-radius:999px; padding:6px 12px; font-weight:700; box-shadow:0 2px 8px rgba(0,0,0,.2);">Fechar</button>
+<img alt="Clinical Frailty Scale — reference card" id="cfsLegendImg" src="assets/img/cfs.png" style="width:100%; height:auto; border-radius:8px; border:2px solid #fff; box-shadow:0 6px 24px rgba(0,0,0,.4);"/>
+<div style="margin-top:6px; text-align:center; color:#fff; font-size:12px;">Clinical Frailty Scale © Geriatric Medicine Research — Dalhousie University. Used with permission.</div>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var box = document.getElementById('cfsLegendBox');
+  var modal = document.getElementById('cfsLegendModal');
+  var closeBtn = document.getElementById('cfsLegendClose');
+  var img = document.getElementById('cfsLegendImg');
+  if (box && modal){
+    /* box title removed */
+/* legend click handler disabled */
+}
+  if (modal){
+    modal.addEventListener('click', function(e){
+      if (e.target === modal) modal.style.display = 'none';
+    });
+  }
+  if (closeBtn){
+    closeBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      modal.style.display = 'none';
+    });
+  }
+  if (img){
+    img.addEventListener('click', function(e){ e.stopPropagation(); });
+  }
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal && modal.style.display === 'block') {
+      modal.style.display = 'none';
+    }
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var link  = document.getElementById('openCfsLink');
+  var modal = document.getElementById('cfsLegendModal') || document.getElementById('cfsModal') || document.querySelector('[data-modal="cfs"]');
+  var closeBtn = document.getElementById('cfsLegendClose') || document.querySelector('[data-close="cfs"]');
+  var img = document.getElementById('cfsLegendImg') || document.querySelector('img[data-img="cfs"]');
+
+  if (link && modal){
+    link.addEventListener('click', function(ev){
+      ev.preventDefault();
+      ev.stopPropagation();
+      // Support both inline style and Tailwind-based hidden class
+      if (modal.style) modal.style.display = 'block';
+      if (modal.classList && modal.classList.contains('hidden')) modal.classList.remove('hidden');
+    });
+  }
+
+  if (modal){
+    modal.addEventListener('click', function(e){
+      if (e.target === modal){
+        if (modal.style) modal.style.display = 'none';
+        if (modal.classList && !modal.classList.contains('hidden')) modal.classList.add('hidden');
+      }
+    });
+  }
+  if (closeBtn){
+    closeBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      if (modal.style) modal.style.display = 'none';
+      if (modal.classList && !modal.classList.contains('hidden')) modal.classList.add('hidden');
+    });
+  }
+  if (img){
+    img.addEventListener('click', function(e){ e.stopPropagation(); });
+  }
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal){
+      if (modal.style) modal.style.display = 'none';
+      if (modal.classList && !modal.classList.contains('hidden')) modal.classList.add('hidden');
+    }
+  });
+});
+</script>
+
+
+<script>
+(function(){
+  if (window.__CFS_HELPERS_INSTALLED__) return;
+  window.__CFS_HELPERS_INSTALLED__ = true;
+  window.__openCfs = function(){
+    try {
+      var modal = document.getElementById('cfsLegendModal') ||
+                  document.getElementById('cfsModal') ||
+                  document.querySelector('[data-modal="cfs"]');
+      if (!modal) return false;
+      if (modal.style) modal.style.display = 'block';
+      if (modal.classList && modal.classList.contains('hidden')) modal.classList.remove('hidden');
+      return false; // prevent default
+    } catch(e){ return false; }
+  };
+  window.__closeCfs = function(){
+    try {
+      var modal = document.getElementById('cfsLegendModal') ||
+                  document.getElementById('cfsModal') ||
+                  document.querySelector('[data-modal="cfs"]');
+      if (!modal) return false;
+      if (modal.style) modal.style.display = 'none';
+      if (modal.classList && !modal.classList.contains('hidden')) modal.classList.add('hidden');
+      return false;
+    } catch(e){ return false; }
+  };
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') { try { window.__closeCfs(); } catch(_){} }
+  });
+})();
+</script>
+
+
+<!-- === DISCRETE GLOBAL COUNTERS (Visits / Completions) === -->
+<script>
+  // Cloudflare Worker base URL
+  window.__COUNTER_BASE__ = "https://75cs-counters.matheus-barros-md.workers.dev";
+</script>
+
+<div id="site-counters" style="
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  font: 12px system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color: rgba(0,0,0,.55);
+  background: rgba(255,255,255,.7);
+  border: 1px solid rgba(0,0,0,.08);
+  padding: 6px 8px;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+  display: none;
+">
+  <span>Visits <span id="cnt-visits">–</span></span>
+  <span style="margin-left:10px">Completions <span id="cnt-completions">–</span></span>
+</div>
+
+<script>
+(function () {
+  const BASE = window.__COUNTER_BASE__;
+  const CALC_ID = "75cs"; // namespacing for this calculator
+  if (!BASE) return;
+
+  function withCalc(path) {
+    const sep = path.includes("?") ? "&" : "?";
+    return BASE.replace(/\/$/, "") + path + sep + "calc=" + encodeURIComponent(CALC_ID);
+  }
+
+  async function refresh() {
+    try {
+      const r = await fetch(withCalc("/get"), { cache: "no-store" });
+      if (!r.ok) return;
+      const d = await r.json();
+      const v = (d && (d.visits ?? d.count ?? d.value)) ?? "–";
+      const c = (d && (d.completions ?? d.completed ?? d.completion)) ?? "–";
+      const elV = document.getElementById("cnt-visits");
+      const elC = document.getElementById("cnt-completions");
+      if (elV) elV.textContent = v;
+      if (elC) elC.textContent = c;
+      const badge = document.getElementById("site-counters");
+      if (badge) badge.style.display = "block";
+    } catch {}
+  }
+
+  // count visit once per tab (namespaced)
+  const VISIT_KEY = "visit_counted_" + CALC_ID + "_v1";
+  if (!sessionStorage.getItem(VISIT_KEY)) {
+    sessionStorage.setItem(VISIT_KEY, "1");
+    fetch(withCalc("/visit"), { method: "GET", cache: "no-store" }).catch(() => {});
+  }
+
+  // completion hook (debounced)
+  window.__countFlowchartCompletion__ = function () {
+    const now = Date.now();
+    const LAST_KEY = "flow_last_completion_ts_" + CALC_ID + "_v1";
+    const last = Number(sessionStorage.getItem(LAST_KEY) || 0);
+    if (now - last < 2500) return;
+    sessionStorage.setItem(LAST_KEY, String(now));
+
+    fetch(withCalc("/complete"), { method: "GET", cache: "no-store" }).catch(() => {});
+    refresh();
+  };
+
+  refresh();
+})();
+</script>
+<!-- === /DISCRETE GLOBAL COUNTERS === -->
+
+<!-- === AUTO-DETECT COMPLETION (Step 5) WITHOUT TOUCHING CORE LOGIC === -->
+<script>
+(function () {
+  const root = document.querySelector('[x-data="fluxograma()"]') || document.querySelector('[x-data]');
+  if (!root) return;
+
+  function getData() {
+    try {
+      if (window.Alpine && typeof window.Alpine.$data === "function") {
+        return window.Alpine.$data(root);
+      }
+      if (root.__x && root.__x.$data) return root.__x.$data;
+      if (root._x_dataStack && root._x_dataStack.length) return root._x_dataStack[0];
+    } catch {}
+    return null;
+  }
+
+  let lastStep = null;
+  let armed = true; // re-arm once user leaves step 5
+
+  const timer = setInterval(() => {
+    const data = getData();
+    if (!data) return;
+
+    const stepRaw = data.step;
+    const step = typeof stepRaw === "number" ? stepRaw : Number(stepRaw);
+    if (!Number.isFinite(step)) return;
+
+    // If user is not on step 5, we re-arm so the next entry into step 5 will count.
+    if (step !== 5) armed = true;
+
+    // Count on transitions into step 5 (from any non-5 step)
+    if (step === 5 && lastStep !== 5 && armed) {
+      armed = false;
+      if (typeof window.__countFlowchartCompletion__ === "function") {
+        window.__countFlowchartCompletion__();
+      }
+    }
+
+    lastStep = step;
+  }, 250);
+
+  setTimeout(() => clearInterval(timer), 30 * 60 * 1000);
+})();
+</script>
+<!-- === /AUTO-DETECT COMPLETION === -->
+
+<!-- === APP-ONLY ENHANCEMENTS BEGIN === -->
+
+<!-- App: detect standalone mode (moved here to keep App code together) -->
+<script>
+(function(){
+  try{
+    const dm = (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches);
+    const iosStandalone = (typeof navigator !== "undefined" && navigator.standalone === true);
+    if (dm || iosStandalone) document.body.classList.add("app-standalone");
+  }catch{}
+})();
+</script>
+
+<script>
+(function () {
+  const isApp = (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) ||
+                (typeof navigator !== "undefined" && navigator.standalone === true) ||
+                document.body.classList.contains("app-standalone");
+  if (!isApp) return;
+
+  // Collapse authors/collaborators into a <details>
+  const authors = document.querySelector("div.mt-1.text-center.text-gray-500.text-xs.md\\:text-sm.leading-relaxed");
+  const title = document.querySelector("h1");
+  if (authors && title) {
+    const details = document.createElement("details");
+    details.className = "app-collapsible";
+    const summary = document.createElement("summary");
+    summary.textContent = "Autores e Contribuidores";
+    details.appendChild(summary);
+
+    const body = document.createElement("div");
+    body.className = "app-muted text-center";
+    body.innerHTML = authors.innerHTML;
+    details.appendChild(body);
+
+    // Insert after the second subtitle line if present, otherwise after title
+    const after = title.nextElementSibling && title.nextElementSibling.nextElementSibling
+      ? title.nextElementSibling.nextElementSibling
+      : title;
+    after.parentNode.insertBefore(details, after.nextSibling);
+  }
+
+  // Make the flowchart image collapsible (wrap the image itself)
+  const flowImg = document.querySelector("img[src*='flow'], img[alt*='Flow'], img[alt*='flow']");
+  if (flowImg && !flowImg.closest("details.app-collapsible")) {
+    flowImg.classList.add("app-flowchart");
+    const details = document.createElement("details");
+    details.className = "app-collapsible";
+    const summary = document.createElement("summary");
+    summary.textContent = "Show flowchart";
+    details.appendChild(summary);
+
+    const parent = flowImg.parentNode;
+    parent.insertBefore(details, flowImg);
+    details.appendChild(flowImg);
+  }
+
+  // Scale down other images (e.g., ACLM)
+  document.querySelectorAll("img").forEach(img => {
+    if (!img.classList.contains("app-flowchart")) img.classList.add("app-scale-down");
+  });
+})();
+</script>
+<!-- === APP-ONLY ENHANCEMENTS END === -->
+
+
+<!-- App-only: adjust the flowchart zoom hint for touch devices -->
+<script>
+(function () {
+
+  const isStandalone =
+    (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
+    window.navigator.standalone === true;
+
+  if (!isStandalone) return;
+
+  const hint = document.getElementById('fluxograma-zoom-hint');
+  const flowDetails = document.querySelector('#fluxograma-hero details');
+
+  if (!hint || !flowDetails) return;
+
+  hint.textContent = 'Pinch to zoom';
+  hint.style.display = 'none';
+
+  flowDetails.addEventListener('toggle', function () {
+    hint.style.display = flowDetails.open ? 'block' : 'none';
+  });
+
+})();
+</script>
+
+</body>
+</html>
