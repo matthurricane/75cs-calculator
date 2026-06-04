@@ -1145,7 +1145,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const details = document.createElement("details");
     details.className = "app-collapsible";
     const summary = document.createElement("summary");
-    summary.textContent = "Show flowchart";
+    summary.textContent = "Mostrar fluxograma";
     details.appendChild(summary);
 
     const parent = flowImg.parentNode;
@@ -1177,7 +1177,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   if (!hint || !flowDetails) return;
 
-  hint.textContent = 'Faça pinça para ampliar';
+  hint.textContent = 'Pince para ampliar';
   hint.style.display = 'none';
 
   flowDetails.addEventListener('toggle', function () {
